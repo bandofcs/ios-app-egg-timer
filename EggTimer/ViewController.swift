@@ -31,17 +31,14 @@ class ViewController: UIViewController {
                 } else {
                     timer.invalidate()
                     titleLabel.text="Done!"
-                    playSound()
+                    let url = Bundle.main.url(forResource: "alarm_sound", withExtension: "mp3")
+                    player = try! AVAudioPlayer(contentsOf: url!)
+                    player.play()
                 }
         }
         
     }
     
-    func playSound() {
-            let url = Bundle.main.url(forResource: "alarm_sound", withExtension: "mp3")
-            player = try! AVAudioPlayer(contentsOf: url!)
-            player.play()
-            
-        }
+
 
 }
